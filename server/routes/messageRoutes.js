@@ -3,13 +3,11 @@ const messageModel = require('../models/Message');
 const app = express();
 
 app.get('/', async(req, res) => {
-  const foods = await messageModel.find({});
-
-  try {
-    res.send(foods);
-  } catch (err) {
-    res.status(500).send(err);
-  }
+  const msg = await messageModel.find({});
+  if(msg)
+    res.send(msg);
+  else
+    res.send('Hello yo');
 });
 
 module.exports = app
