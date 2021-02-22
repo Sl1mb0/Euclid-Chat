@@ -12,9 +12,6 @@ app.use(express.json());
 const uri = process.env.MONGODB_URI;
 const port = process.env.PORT || 3000;
 
-const Message = require('./models/Message');
-const messageRouter = require('./routes/messageRoutes.js')
-
 const mongoose = require('mongoose');
 
 mongoose.connect(uri, {
@@ -22,12 +19,23 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
 });
 
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+  console.log("MongoDB connection established successfully.");
+});
+
 
 /*app.get('/',(req, res) => {
   res.send('Hello World');
 });*/
 
-app.use(messageRouter);
+//app.use(messageRouter);
+
+const Message = require('./models/message.model');
+const messageRouter = require('./routes/messages.js');
+
+app.use('/messages', messageRouter);
 
 http.listen(port, () => {
   console.log('listening on *:' + port);
