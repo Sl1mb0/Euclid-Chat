@@ -1,0 +1,26 @@
+{
+  "name": "euclid-chat",
+  "version": "1.0.0",
+  "description": "simple IM chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sl1mb0/euclid-chat.git"
+  },
+  "author": "Tim Maloney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sl1mb0/euclid-chat/issues"
+  },
+  "homepage": "https://github.com/Sl1mb0/euclid-chat#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0",
+    "socket.io": "^4.0.0"
+  }
+}
