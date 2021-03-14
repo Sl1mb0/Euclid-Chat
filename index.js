@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 const server = app.listen(port, () => {
-  console.log('Euclid Chat listeninig at http:localhost:${port}')
+  console.log('Euclid Chat listening at http:localhost:' + port);
 })
 
 const io = require('socket.io')(server);
